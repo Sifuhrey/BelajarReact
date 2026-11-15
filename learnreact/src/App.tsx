@@ -22,7 +22,7 @@ function App() {
     <main className="bg-yellow-300 h-lvh flex flex-col items-center justify-center gap-7">
       <h1>This is a simple React app</h1>
 
-      <section className="bg-yellow-600 p-20 w-3/4 rounded shadow-md flex flex-col items-center justify-center gap-5">
+      <section className="bg-yellow-600 p-20 w-3/4 max-h-3/4 mt-10 rounded shadow-md flex flex-col items-center justify-center gap-5">
         <div className="flex flex-row items-center justify-center">
           <Card
             title="State"
@@ -52,17 +52,22 @@ function App() {
           value={name}
           onChange={changeName}
         />
-        <p>
-          Umur {name} adalah {count} tahun.
-        </p>
         <label>
           <input type="checkbox" checked={liked} onChange={handleLike} />I
           understand this
         </label>
+        
+        
         {name !== "" && (
+          <>
+          <p>
+          Umur {name} adalah {count} tahun.
+        </p>
           <p>
             The user {name} has {liked ? "understood" : "not understood"} this.
           </p>
+          </>
+          
         )}
       </section>
     </main>
