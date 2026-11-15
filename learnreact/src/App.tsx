@@ -9,7 +9,7 @@ function App() {
   function addAge() {
     setCount(count + 1);
   }
-  function decreaseAge(){
+  function decreaseAge() {
     setCount(count - 1);
   }
   function changeName(e: React.ChangeEvent<HTMLInputElement>) {
@@ -52,12 +52,18 @@ function App() {
           value={name}
           onChange={changeName}
         />
-        <p>Umur {name} adalah {count} tahun.</p>
+        <p>
+          Umur {name} adalah {count} tahun.
+        </p>
         <label>
-          <input type="checkbox" checked={liked} onChange={handleLike} />
-          I understand this
+          <input type="checkbox" checked={liked} onChange={handleLike} />I
+          understand this
         </label>
-        <p>The user {name} has {liked ? 'understood' : 'not understood'} this.</p>
+        {name !== "" && (
+          <p>
+            The user {name} has {liked ? "understood" : "not understood"} this.
+          </p>
+        )}
       </section>
     </main>
   );
