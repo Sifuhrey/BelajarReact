@@ -1,15 +1,30 @@
-import './App.css'
+import { Link, useLocation } from "react-router-dom";
+import "./App.css";
 
 function Header() {
-    const headerFontSize = "text-2xl"; // Tailwind CSS class for font size
-    return (
-    
-        <header className="bg-blue-500 text-white p-4 flex items-center justify-between">
-            <h1 className={headerFontSize}>This is Header Component</h1>
-            <p className="text-sm">its located on the top of the page</p>
-        </header>
-        
-    )
+  const { pathname } = useLocation();
+
+  let pageTitle = "Page not found";
+
+  if (pathname === "/") {
+    pageTitle = "Home Page";
+  } else if (pathname === "/state") {
+    pageTitle = "State Page";
+  } else if (pathname === "/props") {
+    pageTitle = "Props Page";
+  }
+
+  return (
+    <header className="flex items-center justify-between bg-blue-500 p-4 text-white">
+      <h1 className="text-2xl">{pageTitle}</h1>
+
+      <nav className="flex gap-4">
+        {pathname !== "/" && <Link to="/">Home</Link>}
+        {pathname !== "/state" && <Link to="/state">State</Link>}
+        {pathname !== "/props" && <Link to="/props">Props</Link>}
+      </nav>
+    </header>
+  );
 }
 
-export default Header
+export default Header;
