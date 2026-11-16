@@ -14,12 +14,10 @@ function App() {
             <Card
               title="State"
               description="State is data a component owns and can update over time. When state changes, React renders the component again. Use state for things that change through interaction, such as a counter value or whether a menu is open."
-              route="/state"
             />
             <Card
               title="Props"
               description="Props are read-only values passed to a component. They are used to pass data from a parent component to a child component. Props are immutable, meaning they cannot be changed by the child component."
-              route="/props"
             />
           </div>
         </section>
