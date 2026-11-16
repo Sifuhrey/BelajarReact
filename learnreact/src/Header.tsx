@@ -20,8 +20,8 @@ function Header() {
 
       <nav className="flex gap-4">
         {pathname !== "/" && <Link to="/">Home</Link>}
-        {pathname !== "/state" && <Link to="/state">State</Link>}
-        {pathname !== "/props" && <Link to="/props">Props</Link>}
+        {pathname !== "/state"&& pathname !== "/" && <Link to="/state">State</Link>}
+        {pathname !== "/props"&& pathname !== "/" &&  <Link to="/props">Props</Link>}
       </nav>
     </header>
   );
