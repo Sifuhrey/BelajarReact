@@ -16,7 +16,7 @@ function AboutPage() {
               
               className="rounded shadow-2xl max-w-1/4"
             />
-            <p className=" text-5xl max-md:text-lg">Fakhri Abdillah</p>
+            <p className=" text-5xl max-md:text-md">Fakhri Abdillah</p>
           </div>
           <p className="text-white text-lg">
             I’m an Applied Software Engineering student at Telkom University in

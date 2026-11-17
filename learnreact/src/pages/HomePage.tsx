@@ -10,7 +10,7 @@ function App() {
         <h1 className="text-2xl font-bold">
           This web is Fakhri understanding of React
         </h1>
-        <section className="bg-yellow-600 p-20 m-10 max-w-4/5 rounded shadow-md flex flex-col items-center justify-center gap-5">
+        <section className="bg-yellow-600 p-20  max-w-4/5 rounded shadow-md flex flex-col items-center justify-center gap-5">
           <div className="flex flex-row items-center justify-center">
             <Link to="/state">
               <HomeCard

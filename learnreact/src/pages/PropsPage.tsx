@@ -17,7 +17,13 @@ function PropsPage() {
           >
             <option value="USA">United States</option>
             <option value="Germany">Germany</option>
-            <option value="USSR">Russia</option>
+            <option value="Russia">Russia</option>
+            <option value="Great Britain">Great Britain</option>
+            <option value="France">France</option>
+            <option value="Japan">Japan</option>
+            <option value="Italy">Italy</option>
+            <option value="Sweden">Sweden</option>
+            <option value="China">China</option>
           </select>
         </label>
         <PropsCard nation={nation} />
