@@ -11,6 +11,8 @@ function Header() {
     pageTitle = "State Page";
   } else if (pathname === "/about") {
     pageTitle = "Props Page";
+  } else if (pathname === "/props") {
+    pageTitle = "Props Page";
   }
 
   return (
@@ -21,6 +23,7 @@ function Header() {
         {pathname !== "/" && <Link to="/">Home</Link>}
         {pathname !== "/state"&& pathname !== "/" && <Link to="/state">State</Link>}
         {pathname !== "/about" &&  <Link to="/about">About</Link>}
+        {pathname !== "/props" && pathname !== "/" && <Link to="/props">Props</Link>}
       </nav>
     </header>
   );

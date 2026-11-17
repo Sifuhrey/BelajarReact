@@ -1,6 +1,7 @@
 import Header from "../components/Header";
 import profilePic from "../assets/profilepic.jpg";
 import SocmedCard from "../features/social-media/SocmedCard";
+import { socmedData } from "../features/social-media/SocmedData";
 
 function AboutPage() {
   return (
@@ -36,7 +37,7 @@ function AboutPage() {
         </div>
         <div className="flex w-full shrink-0 flex-col gap-4 rounded bg-blue-400 p-6 shadow-cyan-500 lg:w-64">
           <p className="text-3xl max-md:text-lg">Visit My Social Media:</p>
-          <SocmedCard />
+          <SocmedCard/>
         </div>
       </main>
     </>
