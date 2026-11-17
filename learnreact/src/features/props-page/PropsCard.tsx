@@ -12,7 +12,7 @@ function PropsCard(nation: any) {
       className="box-border flex  items-center  bg-blue-400 m-3 shadow-md  justify-stretch gap-3 rounded  p-3"
       to={getImageUrl(item).url}
     >
-      <img src={getImageUrl(item).img} alt="" className="w-48  rounded" />
+      <img src={getImageUrl(item).img} alt="" loading="lazy" className="w-48  rounded" />
       <div className="flex flex-col gap-1">
         <p className="whitespace-nowrap text-base font-bold">{item.name}</p>
         <p className="text-sm">{item.nation}</p>
