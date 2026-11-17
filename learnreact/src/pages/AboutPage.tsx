@@ -1,7 +1,7 @@
 import Header from "../components/Header";
 import profilePic from "../assets/profilepic.jpg";
 import SocmedCard from "../features/social-media/SocmedCard";
-import { socmedData } from "../features/social-media/SocmedData";
+
 
 function AboutPage() {
   return (
