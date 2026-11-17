@@ -1,4 +1,5 @@
 import { useState } from "react";
+import NameInput from "./NameInput";
 
 function StateComponent() {
   const [count, setCount] = useState(20);
@@ -7,9 +8,6 @@ function StateComponent() {
   const [isHovered, setIsHovered] = useState(false);
   function decreaseAge() {
     setCount(count - 1);
-  }
-  function changeName(e: React.ChangeEvent<HTMLInputElement>) {
-    setName(e.target.value);
   }
   function handleLike(e: React.ChangeEvent<HTMLInputElement>) {
     setLiked(e.target.checked);
@@ -45,13 +43,7 @@ function StateComponent() {
         </button>
       </div>
 
-      <input
-        className="border border-gray-300  bg-white rounded px-4 py-2"
-        type="text"
-        placeholder="Masukkan nama"
-        value={name}
-        onChange={changeName}
-      />
+      <NameInput name={name} onNameChange={setName} />
       <label>
         <input type="checkbox" checked={liked} onChange={handleLike} /> I
         understand this

@@ -1,13 +1,11 @@
 
-import './App.css'
-
 type CardProps = {
     title: string;
     description: string;
     route?: string; // Optional route prop
 }
 
-function Card({ title, description}: CardProps) {
+function HomeCard({ title, description}: CardProps) {
     return(
         <div className="bg-yellow-500 p-4  rounded shadow-sm m-2">
             <h1 className="text-white text-center text-2xl font-bold">{title}</h1>
@@ -16,4 +14,4 @@ function Card({ title, description}: CardProps) {
         </div>
     )
 }
-export default Card
+export default HomeCard

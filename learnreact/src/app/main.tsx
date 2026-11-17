@@ -1,15 +1,16 @@
 import { createRoot } from "react-dom/client";
-import App from "./App.tsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import StatePage from "./StatePage.tsx";
-import PropsPage from "./PropsPage.tsx";
+import "../Global.css";
+import HomePage from "../pages/HomePage";
+import StatePage from "../pages/StatePage";
+import AboutPage from "../pages/AboutPage";
 
 createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />} />
+      <Route path="/" element={<HomePage />} />
       <Route path="/state" element={<StatePage />} />
-      <Route path="/props" element={<PropsPage />} />
+      <Route path="/about" element={<AboutPage />} />
     </Routes>
   </BrowserRouter>,
 );

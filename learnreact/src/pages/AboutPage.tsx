@@ -1,12 +1,13 @@
-import Header from "./Header";
-import profilePic from "./assets/profilepic.jpg";
+import Header from "../components/Header";
+import profilePic from "../assets/profilepic.jpg";
+import SocmedCard from "../features/social-media/SocmedCard";
 
-function PropsPage() {
+function AboutPage() {
   return (
     <>
       <Header />
-      <main className="bg-blue-200 min-h-lvh flex flex-row items-center p-10 gap-7">
-        <div className=" bg-blue-400 flex flex-col p-10 gap-4 rounded shadow-cyan-500 max-w-1/2">
+      <main className="flex min-h-lvh flex-col items-start gap-7 bg-blue-200 p-10 lg:flex-row">
+        <div className="flex min-w-0 flex-1 flex-col gap-4 rounded bg-blue-400 p-10 shadow-cyan-500">
           <div className="flex flex-row gap-10 p-4 items-center rounded ">
             <img
               src={profilePic}
@@ -33,12 +34,13 @@ function PropsPage() {
             developer.
           </p>
         </div>
-        <div className=" bg-blue-700 flex flex-col p-10 gap-4 rounded shadow-cyan-500 max-w-1/2">
-            Visit My Social Media:
+        <div className="flex w-full shrink-0 flex-col gap-4 rounded bg-blue-400 p-6 shadow-cyan-500 lg:w-64">
+          <p className="text-3xl max-md:text-lg">Visit My Social Media:</p>
+          <SocmedCard />
         </div>
       </main>
     </>
   );
 }
 
-export default PropsPage;
+export default AboutPage;

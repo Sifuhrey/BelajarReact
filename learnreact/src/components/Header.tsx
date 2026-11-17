@@ -1,5 +1,4 @@
 import { Link, useLocation } from "react-router-dom";
-import "./App.css";
 
 function Header() {
   const { pathname } = useLocation();
@@ -10,7 +9,7 @@ function Header() {
     pageTitle = "Home Page";
   } else if (pathname === "/state") {
     pageTitle = "State Page";
-  } else if (pathname === "/props") {
+  } else if (pathname === "/about") {
     pageTitle = "Props Page";
   }
 
@@ -21,7 +20,7 @@ function Header() {
       <nav className="flex gap-4">
         {pathname !== "/" && <Link to="/">Home</Link>}
         {pathname !== "/state"&& pathname !== "/" && <Link to="/state">State</Link>}
-        {pathname !== "/props"&& pathname !== "/" &&  <Link to="/props">Props</Link>}
+        {pathname !== "/about" &&  <Link to="/about">About</Link>}
       </nav>
     </header>
   );
