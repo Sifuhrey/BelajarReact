@@ -12,23 +12,7 @@ function PropsCard(nation: any) {
       className="box-border flex  items-center  bg-blue-400 m-3 shadow-md  justify-stretch gap-3 rounded  p-3"
       to={getImageUrl(item).url}
     >
-      <img
-        src={getImageUrl(item).img}
-        alt={item.name}
-        loading="lazy"
-        className="w-48 rounded"
-        onError={(event) => {
-          const image = event.currentTarget;
-
-          // Retry once with a fresh URL in case the first request failed temporarily.
-          if (image.dataset.retried) return;
-
-          image.dataset.retried = "true";
-          const retryUrl = new URL(image.src);
-          retryUrl.searchParams.set("retry", Date.now().toString());
-          image.src = retryUrl.toString();
-        }}
-      />
+      <img src={getImageUrl(item).img} alt="" loading="lazy" className="w-48  rounded" />
       <div className="flex flex-col gap-1">
         <p className="whitespace-nowrap text-base font-bold">{item.name}</p>
         <p className="text-sm">{item.nation}</p>
