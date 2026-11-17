@@ -4,7 +4,9 @@ import "../Global.css";
 import HomePage from "../pages/HomePage";
 import StatePage from "../pages/StatePage";
 import AboutPage from "../pages/AboutPage";
-import PropsPage from "../pages/PropsPage";
+import { lazy, Suspense } from "react";
+
+const PropsPage = lazy(() => import("../pages/PropsPage"));
 
 createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
@@ -12,7 +14,14 @@ createRoot(document.getElementById("root")!).render(
       <Route path="/" element={<HomePage />} />
       <Route path="/state" element={<StatePage />} />
       <Route path="/about" element={<AboutPage />} />
-      <Route path="/props" element={<PropsPage />} />
+      <Route
+        path="/props"
+        element={
+          <Suspense fallback={<p>Loading props page...</p>}>
+            <PropsPage />
+          </Suspense>
+        }
+      />
     </Routes>
   </BrowserRouter>,
 );
