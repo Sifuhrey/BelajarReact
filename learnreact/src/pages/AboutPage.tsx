@@ -3,17 +3,19 @@ import profilePic from "../assets/profilepic.jpg";
 import SocmedCard from "../features/social-media/SocmedCard";
 
 
+
 function AboutPage() {
   return (
     <>
+
       <Header />
       <main className="flex min-h-lvh flex-col items-start gap-7 bg-blue-200 p-10 lg:flex-row">
-        <div className="flex min-w-0 flex-1 flex-col gap-4 rounded bg-blue-400 p-10 shadow-cyan-500">
+        <div className="flex min-w-0 animate-fade-in-right animate-duration-300 flex-1 flex-col gap-4 rounded bg-blue-400 p-10 shadow-cyan-500">
           <div className="flex flex-row gap-10 p-4 items-center rounded ">
             <img
               src={profilePic}
               alt=""
-              
+
               className="rounded shadow-2xl max-w-1/4"
             />
             <p className=" text-5xl max-md:text-md">Fakhri Abdillah</p>
@@ -35,9 +37,9 @@ function AboutPage() {
             developer.
           </p>
         </div>
-        <div className="flex w-full shrink-0 flex-col gap-4 rounded bg-blue-400 p-6 shadow-cyan-500 lg:w-64">
+        <div className="flex w-full shrink-0 animate-fade-in-left animate-duration-300 flex-col gap-4 rounded bg-blue-400 p-6 shadow-cyan-500 lg:w-64">
           <p className="text-3xl max-md:text-lg">Visit My Social Media:</p>
-          <SocmedCard/>
+          <SocmedCard />
         </div>
       </main>
     </>

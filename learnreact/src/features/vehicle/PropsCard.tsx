@@ -8,9 +8,7 @@ type PropsCardProps = {
 
 function PropsCard({ nation }: PropsCardProps) {
   const nationTank =
-    nation === "All"
-      ? propsData
-      : propsData.filter((vehicle) => vehicle.nation === nation);
+    propsData.filter((vehicle) => vehicle.nation === nation);
   const listItems = nationTank.map((item) => (
     <Link
       key={item.identifier}
