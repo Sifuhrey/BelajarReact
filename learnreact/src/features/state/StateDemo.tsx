@@ -7,8 +7,8 @@ function StateComponent() {
   const [liked, setLiked] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const tulisan ={
-    color: "red",
-    fontSize: "16px",
+    color: "blue",
+    fontSize: "20px",
     fontWeight: "bold",
   };
   function decreaseAge() {
@@ -50,13 +50,13 @@ function StateComponent() {
 
       <NameInput name={name} onNameChange={setName} />
       <label>
-        <input type="checkbox" checked={liked} onChange={handleLike} style={tulisan} /> I
+        <input type="checkbox" checked={liked} onChange={handleLike} /> I
         understand this
       </label>
 
       {name !== "" && (
         <>
-          <p>
+          <p style={tulisan}>
             Umur {name} adalah {count} tahun.
           </p>
           <p>

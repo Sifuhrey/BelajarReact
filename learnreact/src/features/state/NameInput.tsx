@@ -4,6 +4,7 @@ type NameInputProps = {
 };
 
 function NameInput({ name, onNameChange }: NameInputProps) {
+  
   return (
     <>
       <input

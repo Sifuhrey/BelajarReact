@@ -2,7 +2,7 @@
 type CardProps = {
     title: string;
     description: string;
-    route?: string; // Optional route prop
+
 }
 
 function HomeCard({ title, description}: CardProps) {
