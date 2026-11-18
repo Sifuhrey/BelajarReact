@@ -3,7 +3,7 @@ import PropsCard from "../features/vehicle/PropsCard";
 import { useState } from "react";
 
 function PropsPage() {
-  const [nation, setNation] = useState("USA");
+  const [nation, setNation] = useState("All");
   return (
     <>
       <Header />
@@ -15,6 +15,7 @@ function PropsPage() {
             onChange={(e) => setNation(e.target.value)}
             className=" p-1 rounded bg-white mx-2"
           >
+            <option value="All">All vehicles</option>
             <option value="USA">United States</option>
             <option value="Germany">Germany</option>
             <option value="Russia">Russia</option>

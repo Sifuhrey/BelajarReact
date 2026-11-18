@@ -7,13 +7,14 @@ type PropsCardProps = {
 };
 
 function PropsCard({ nation }: PropsCardProps) {
-  const nationTank = propsData.filter(
-    (propsData) => propsData.nation === nation,
-  );
+  const nationTank =
+    nation === "All"
+      ? propsData
+      : propsData.filter((vehicle) => vehicle.nation === nation);
   const listItems = nationTank.map((item) => (
     <Link
       key={item.identifier}
-      className="box-border flex  items-center  bg-blue-400 m-3 shadow-md  justify-stretch gap-3 rounded  p-3"
+      className="box-border flex  items-center  bg-blue-400 m-3 shadow-md mx-16  animate-fade-in-right animate-duration-300  justify-stretch gap-3 rounded  p-3"
       to={getImageUrl(item).url}
     >
       <img src={getImageUrl(item).img} alt="" className="w-48 rounded" />
