@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import HomeCard from "../components/HomeCard";
 import Header from "../components/Header";
 
-function App() {
+function HomePage() {
   return (
     <>
       <Header />
@@ -31,4 +31,4 @@ function App() {
   );
 }
 
-export default App;
+export default HomePage;

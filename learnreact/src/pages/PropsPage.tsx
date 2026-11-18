@@ -1,5 +1,5 @@
 import Header from "../components/Header";
-import PropsCard from "../features/props-page/PropsCard";
+import PropsCard from "../features/vehicle/PropsCard";
 import { useState } from "react";
 
 function PropsPage() {
