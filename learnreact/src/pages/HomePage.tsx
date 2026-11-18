@@ -7,8 +7,8 @@ function HomePage() {
     <>
       <Header />
       <main className="bg-yellow-300 min-h-lvh flex flex-col items-center justify-center gap-7">
-        <section className="bg-yellow-600 p-20 max-lg:my-32 max-w-4/5 rounded shadow-md flex flex-col items-center justify-center gap-5">
-          <div className="flex flex-col lg:flex-row items-center justify-center">
+        <section className="bg-yellow-600 p-20 max-lg:my-32 mx-16 rounded shadow-md flex flex-col items-center justify-center gap-5">
+          <div className="flex flex-col lg:flex-row w-full items-stretch justify-center">
             <Link to="/state">
               <HomeCard
                 title="State"
@@ -21,11 +21,14 @@ function HomePage() {
                 description="Props are read-only values passed to a component. They are used to pass data from a parent component to a child component. Props are immutable, meaning they cannot be changed by the child component."
               />
             </Link>
-            <Link to="/form">
+            <Link to="/">
               <HomeCard
                 title="Form"
                 description="Forms are used to collect user input. In React, forms can be controlled or uncontrolled. Controlled forms are managed by React state, while uncontrolled forms are managed by the DOM."
               />
+            </Link>
+            <Link to="/">
+              <HomeCard title="Hooks" description="Hooks are functions that let you 'hook into' React state and lifecycle methods from function components." />
             </Link>
           </div>
         </section>
