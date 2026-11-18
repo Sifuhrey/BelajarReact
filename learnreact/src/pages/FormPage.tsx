@@ -59,7 +59,7 @@ function FormPage() {
                         placeholder="jane@doe.com"
                     />
                     <MySelect label="Job Type" name="jobType">
-                        <option value="">Select a job type</option>
+                        <option value="">Select a job type here</option>
                         <option value="designer">Designer</option>
                         <option value="development">Developer</option>
                         <option value="product">Product Manager</option>
