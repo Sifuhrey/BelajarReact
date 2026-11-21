@@ -10,17 +10,17 @@ function AboutPage() {
 
       <Header />
       <main className="flex min-h-lvh flex-col items-start gap-7 bg-blue-200 p-10 lg:flex-row">
-        <div className="flex min-w-0 animate-fade-in-right animate-duration-300 flex-1 flex-col gap-4 rounded bg-blue-400 p-10 shadow-cyan-500">
+        <div className="flex min-w-0 animate-fade-in-right animate-duration-300 flex-1 flex-col gap-4 rounded bg-blue-400 p-4 md:p-8 shadow-cyan-500">
           <div className="flex flex-row gap-10 p-4 items-center rounded ">
             <img
               src={profilePic}
               alt=""
 
-              className="rounded shadow-2xl max-w-1/4"
+              className="rounded shadow-2xl max-w-1/3"
             />
             <p className=" text-5xl max-md:text-md">Fakhri Abdillah</p>
           </div>
-          <p className="text-white text-lg">
+          <p className="text-white max-md:text-sm text-lg">
             I’m an Applied Software Engineering student at Telkom University in
             Bandung, with hands-on experience in databases and a growing
             interest in building full software systems. Over six months as a

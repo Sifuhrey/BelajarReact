@@ -6,7 +6,7 @@ function HomePage() {
   return (
     <>
       <PageLayout>
-        <section className="bg-yellow-600 p-20 max-lg:my-32 mx-16 rounded shadow-md flex flex-col items-center justify-center gap-5">
+        <section className="bg-yellow-600 p-4 max-lg:my-32 mx-12 rounded shadow-md flex flex-col items-center justify-center ">
           <div className="flex flex-col lg:flex-row w-full items-stretch justify-center">
             <Link to="/state">
               <HomeCard

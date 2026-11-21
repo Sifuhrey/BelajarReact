@@ -1,9 +1,7 @@
-type Props={
-    identifier: string;
-}
-export function getImageUrl(props: Props){
+
+export function getNameUrl(props: string) {
     return{
-        img: "https://wtvehiclesapi.duckdns.org/assets/images/"+props.identifier+".png",
-        url: "https://wiki.warthunder.com/unit/"+props.identifier
+        img: "https://wtvehiclesapi.duckdns.org/assets/images/"+props+".png",
+        url: "https://wiki.warthunder.com/unit/"+props
     }
 }
