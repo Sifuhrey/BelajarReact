@@ -1,19 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { getNameUrl } from "./getImageUrl";
+import { getWikiUrl } from "./getWikiUrl";
+import type { Vehicle } from "./Vehicle";
 
 type VehicleCardProps = {
-  item: {
-    identifier: string;
-    country: string;
-    images: {
-      image: string;
-      techtree: string;
-    };
-    realistic_br: number;
-    is_premium: boolean;
-    on_marketplace: boolean;
-  };
+  item: Vehicle;
 };
 
 function VehicleCard({ item }: VehicleCardProps) {
@@ -31,7 +22,7 @@ function VehicleCard({ item }: VehicleCardProps) {
       {imageLoaded && (
         <Link
           className="box-border flex items-center bg-blue-400 m-3 shadow-md mx-8 hover:bg-blue-500 animate-fade-in-right animate-duration-300 justify-stretch gap-3 rounded p-3"
-          to={getNameUrl(item.identifier).url}
+          to={getWikiUrl(item.identifier)}
         >
           <img src={item.images.image} alt="" className="w-48 rounded" />
           <div className="flex flex-col gap-1">

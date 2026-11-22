@@ -11,7 +11,6 @@ function SocmedCard() {
       >
         <img src={item.img} alt="" className="w-14  rounded" />
         <p className="whitespace-nowrap text-base font-bold">{item.name}</p>
-        
       </Link>
   ));
   return <div className="flex w-full flex-col gap-4">{listItems}</div>;

@@ -1,24 +1,11 @@
 import VehicleCard from "./VehicleCard";
 import { useEffect, useState } from "react";
+import type { Vehicle } from "./Vehicle";
 
 type PropsCardProps = {
   country: string;
   type: string;
 };
-
-type Vehicle = {
-  identifier: string;
-  country: string;
-  images: {
-    image: string;
-    techtree: string;
-  };
-  realistic_br: number;
-  is_premium: boolean;
-  on_marketplace: boolean;
-};
-
-
 
 function PropsCard({ country, type }: PropsCardProps) {
   const [countryState, setCountryState] = useState<Vehicle[]>([]);
@@ -36,13 +23,12 @@ function PropsCard({ country, type }: PropsCardProps) {
         const sortedData = vehicles.sort((a, b) => a.realistic_br - b.realistic_br);
         setCountryState(sortedData);
       });
-
-
   }, [country, type]);
 
-  const listItems = countryState.map((item) => (
-    <VehicleCard key={`${item.identifier}-${item.images.image}`} item={item} />
-  ));
-  return <div className="flex w-full flex-col gap-4">{listItems}</div>;
+  return <div className="flex w-full flex-col gap-4">{
+    countryState.map((item) => (
+      <VehicleCard key={`${item.identifier}-${item.images.image}`} item={item} />
+    ))
+  }</div>;
 }
 export default PropsCard;
