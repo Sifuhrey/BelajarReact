@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { socmedData } from "./SocmedData";
+import { SocmedData } from "./SocmedData";
 
 
 function SocmedCard() {
-  const listItems = socmedData.map((item) => (
+  const listItems = SocmedData.map((item) => (
       <Link
         key={item.id}
         className="box-border flex w-full items-center justify-stretch gap-3 rounded  p-3"

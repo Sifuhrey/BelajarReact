@@ -9,7 +9,7 @@ function PropsPage() {
   return (
     <>
       <PageLayout>
-        <div className="flex  gap-4 items-center justify-center">
+        <div className="flex max-md:flex-col gap-4 items-center justify-center">
           <label className="text-lg mt-5">
             Choose Nation
             <select
@@ -41,6 +41,19 @@ function PropsPage() {
               <option value="heavy_tank">Heavy Tank</option>
               <option value="tank_destroyer">Tank Destroyer</option>
               <option value="spaa">SPAA</option>
+              <option value="attack_helicopter">Attack Helicopter</option>
+              <option value="utility_helicopter">Utility Helicopter</option>
+              <option value="fighter">Fighter</option>
+              <option value="assault">Assault</option>
+              <option value="bomber">Bomber</option>
+              <option value="destroyer">Destroyer</option>
+              <option value="light_cruiser">Light Cruiser</option>
+              <option value="boat">Boat</option>
+              <option value="heavy_boat">Heavy Boat</option>
+              <option value="barge">Barge</option>
+              <option value="heavy_cruiser">Heavy Cruiser</option>
+              <option value="battleship">Battleship</option>
+              <option value="battlecruiser">Battlecruiser</option>
             </select>
           </label>
         </div>

@@ -28,12 +28,12 @@ function VehicleCard({ item }: VehicleCardProps) {
       />
       {imageLoaded && (
         <Link
-          className="box-border flex items-center bg-blue-400 m-3 shadow-md mx-16 animate-fade-in-right animate-duration-300 justify-stretch gap-3 rounded p-3"
+          className="box-border flex items-center bg-blue-400 m-3 shadow-md mx-8 animate-fade-in-right animate-duration-300 justify-stretch gap-3 rounded p-3"
           to={getNameUrl(item.identifier).url}
         >
           <img src={item.images.image} alt="" className="w-48 rounded" />
           <div className="flex flex-col gap-1">
-            <p className="whitespace-nowrap text-base font-bold">
+            <p className=" wrap-anywhere text-base  font-bold">
               {item.identifier}
             </p>
             <p className="text-md">{item.realistic_br}</p>

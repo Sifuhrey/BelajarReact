@@ -20,7 +20,6 @@ type Vehicle = {
 
 function PropsCard({ country, type }: PropsCardProps) {
   const [countryState, setCountryState] = useState<Vehicle[]>([]);
-
   useEffect(() => {
     fetch(`https://wtvehiclesapi.duckdns.org/api/vehicles?limit=200&page=0&country=${country}&type=${type}&isPremium=false&isPack=false&isSquadronVehicle=false&isOnMarketplace=false&excludeKillstreak=true&excludeEventVehicles=true`)
       .then((response) => { return response.json() })

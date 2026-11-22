@@ -1,4 +1,4 @@
-export const socmedData = [
+export const SocmedData = [
     {
         id: 1,
         img: "https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
