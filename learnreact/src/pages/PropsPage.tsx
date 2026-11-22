@@ -57,7 +57,6 @@ function PropsPage() {
             </select>
           </label>
         </div>
-
         <PropsCard country={country} type={type} />
       </PageLayout>
     </>
