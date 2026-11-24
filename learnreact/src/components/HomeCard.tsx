@@ -5,11 +5,13 @@ type CardProps = {
 
 function HomeCard({ title, description }: CardProps) {
     return (
-        <div className="bg-yellow-500 p-4 flex h-full flex-col flex-1 rounded shadow-sm m-2">
+        <div className="bg-yellow-500 p-4 flex h-full hover:bg-yellow-600 focus:border-black flex-col flex-1 rounded shadow-sm m-2">
             <h1 className="text-white text-center text-2xl font-bold">{title}</h1>
             <p className="text-white text-center mt-5">{description}</p>
             <br />
-            <p className="text-white text-center">Click this box to see implementation of {title}</p>
+            <p className="text-white text-center" aria-label={`Click this box to see implementation of ${title}`} aria-required="true">
+                Click this box to see implementation of {title}
+            </p>
         </div>
     )
 }

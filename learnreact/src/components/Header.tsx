@@ -1,9 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom"
+
 
 function Header() {
   const { pathname } = useLocation();
 
   let pageTitle = "Page not found";
+  const navigate = useNavigate();
 
   if (pathname === "/") {
     pageTitle = "Home Page";
@@ -15,6 +18,8 @@ function Header() {
     pageTitle = "Props Page";
   } else if (pathname === "/form") {
     pageTitle = "Form Page";
+  } else if (pathname === "/hook") {
+    pageTitle = "Hook Page";
   }
 
   return (
@@ -22,11 +27,43 @@ function Header() {
       <h1 className="text-2xl">{pageTitle}</h1>
 
       <nav className="flex gap-4">
-        {pathname !== "/" && <Link to="/">Home</Link>}
-        {pathname !== "/state"&& pathname !== "/" && <Link to="/state">State</Link>}
-        {pathname !== "/about" &&  <Link to="/about">About</Link>}
-        {pathname !== "/props" && pathname !== "/" && <Link to="/props">Props</Link>}
-        {pathname !== "/form" && pathname !== "/" && <Link to="/form">Form</Link>}
+        <button onClick={() => navigate(-1)} className="hover:underline font-bold">
+          Back
+        </button>
+        <button onClick={() => navigate(1)} className="hover:underline font-bold">
+          Forward
+        </button>
+
+        {pathname !== "/" && (
+          <Link to="/" aria-label="Home" aria-required="true" className="hover:underline">
+            Home
+          </Link>
+        )}
+        {pathname !== "/state" && pathname !== "/" && (
+          <Link to="/state" aria-label="State" aria-required="true" className="hover:underline">
+            State
+          </Link>
+        )}
+        {pathname !== "/about" && (
+          <Link to="/about" aria-label="About" aria-required="true" className="hover:underline">
+            About
+          </Link>
+        )}
+        {pathname !== "/props" && pathname !== "/" && (
+          <Link to="/props" aria-label="Props" aria-required="true" className="hover:underline">
+            Props
+          </Link>
+        )}
+        {pathname !== "/form" && pathname !== "/" && (
+          <Link to="/form" aria-label="Form" aria-required="true" className="hover:underline">
+            Form
+          </Link>
+        )}
+        {pathname !== "/hook" && pathname !== "/" && (
+          <Link to="/hook" aria-label="Hook" aria-required="true" className="hover:underline">
+            Hook
+          </Link>
+        )}
       </nav>
     </header>
   );

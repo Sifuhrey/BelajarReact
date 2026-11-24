@@ -6,7 +6,7 @@ function HomePage() {
   return (
     <>
       <PageLayout>
-        <section className="bg-yellow-600 p-4 max-lg:my-32 mx-12 rounded shadow-md flex flex-col items-center justify-center ">
+        <section className="bg-blue-400 p-4 max-lg:my-32 mx-12 rounded shadow-md flex flex-col items-center justify-center ">
           <div className="flex flex-col lg:flex-row w-full items-stretch justify-center">
             <Link to="/state">
               <HomeCard
@@ -26,7 +26,7 @@ function HomePage() {
                 description="Forms are used to collect user input. In React, forms can be controlled or uncontrolled. Controlled forms are managed by React state, while uncontrolled forms are managed by the DOM."
               />
             </Link>
-            <Link to="/">
+            <Link to="/hook">
               <HomeCard title="Hooks" description="Hooks are functions that let you 'hook into' React state and lifecycle methods from function components." />
             </Link>
           </div>

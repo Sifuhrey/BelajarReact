@@ -6,6 +6,7 @@ import StatePage from "../pages/StatePage";
 import AboutPage from "../pages/AboutPage";
 import PropsPage from "../pages/PropsPage";
 import FormPage from "../pages/FormPage";
+import HookPage from "../pages/HookPage";
 
 createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
@@ -15,6 +16,7 @@ createRoot(document.getElementById("root")!).render(
       <Route path="/about" element={<AboutPage />} />
       <Route path="/props" element={<PropsPage />} />
       <Route path="/form" element={<FormPage />} />
+      <Route path="/hook" element={<HookPage />} />
     </Routes>
   </BrowserRouter>,
 );

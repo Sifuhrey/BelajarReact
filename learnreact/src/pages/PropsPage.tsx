@@ -1,6 +1,6 @@
 
 import PageLayout from "../components/PageLayout";
-import PropsCard from "../features/vehicle/PropsCard";
+import VehicleList from "../features/vehicle/VehicleList";
 import { useState } from "react";
 
 function PropsPage() {
@@ -57,7 +57,7 @@ function PropsPage() {
             </select>
           </label>
         </div>
-        <PropsCard country={country} type={type} />
+        <VehicleList country={country} type={type} />
       </PageLayout>
     </>
   );

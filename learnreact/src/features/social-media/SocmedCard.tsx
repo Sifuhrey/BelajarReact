@@ -6,7 +6,7 @@ function SocmedCard() {
   const listItems = SocmedData.map((item) => (
       <Link
         key={item.id}
-        className="box-border flex w-full items-center justify-stretch gap-3 rounded  p-3"
+        className="box-border flex w-full items-center justify-stretch gap-3 rounded hover:bg-blue-500 p-3"
         to={item.url}
       >
         <img src={item.img} alt="" className="w-14  rounded" />

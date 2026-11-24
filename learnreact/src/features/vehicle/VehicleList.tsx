@@ -7,7 +7,7 @@ type PropsCardProps = {
   type: string;
 };
 
-function PropsCard({ country, type }: PropsCardProps) {
+function VehicleList({ country, type }: PropsCardProps) {
   const [countryState, setCountryState] = useState<Vehicle[]>([]);
   useEffect(() => {
     // Fetch data from the API
@@ -31,4 +31,4 @@ function PropsCard({ country, type }: PropsCardProps) {
     ))
   }</div>;
 }
-export default PropsCard;
+export default VehicleList;
