@@ -5,8 +5,8 @@ import SearchBox from "../features/map/SearchBox";
 
 function HookPage() {
   const [location, setLocation] = useState<Location>({
-    lat: -6.9175,
-    lon: 107.6191,
+    lat: -6.9214015,
+    lon: 107.6111087,
     name: "Bandung",
   });
 

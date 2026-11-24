@@ -21,7 +21,7 @@ function Map({ location }: { location: Location }) {
     const position: [number, number] = [location.lat, location.lon];
     return (
         <MapContainer
-            center={position} zoom={13} className="max-md:h-[70vh] h-screen w-[80vw] rounded-2xl">
+            center={position} zoom={13} className="max-md:h-[70vh] h-screen w-[80vw] md:w-full rounded-2xl">
             <MapUpdater lat={location.lat} lon={location.lon} />
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
