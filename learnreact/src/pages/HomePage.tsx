@@ -27,7 +27,7 @@ function HomePage() {
               />
             </Link>
             <Link to="/hook">
-              <HomeCard title="Hooks" description="Hooks are functions that let you 'hook into' React state and lifecycle methods from function components." />
+              <HomeCard title="Custom Hooks" description="Custom hooks are reusable functions that let you share stateful logic between React components. They can use built-in hooks like `useState` and `useEffect`, and their names conventionally start with `use`." />
             </Link>
           </div>
         </section>
