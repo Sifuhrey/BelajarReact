@@ -40,7 +40,7 @@ function SearchBox({ onLocationSelect }: SearchBoxProps) {
     };
 
     return (
-        <div className= "flex flex-col items-center gap-4 p-4">
+        <div className= "flex flex-col items-center gap-4 p-2 ">
             <form onSubmit={handleSearch} className="flex gap-2">
                 <input
                     value={query}
@@ -52,7 +52,7 @@ function SearchBox({ onLocationSelect }: SearchBoxProps) {
                     {loading ? 'Searching...' : 'Search'}
                 </button>
             </form>
-            <div className="flex flex-col gap-2 w-full max-w-md bg-blue-200 p-4 rounded shadow">
+            <div className="flex flex-col gap-2 w-full text-sm bg-blue-200 p-4 rounded shadow">
                 {results.map((result) => (
                     <div key={result.place_id} onClick={() => selectLocation(result)} className="cursor-pointer hover:bg-blue-300 p-4 rounded">
                         {result.display_name}
