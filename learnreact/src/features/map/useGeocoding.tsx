@@ -20,6 +20,7 @@ function useGeocoding() {
                 throw new Error(`Error: ${response.status}`);
             }
             const data = await response.json();
+            console.log(data);
             setLoading(false);
             return data;
         }
