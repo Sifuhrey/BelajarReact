@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const pages = [
   { path: "/", title: "Home Page", label: "Home" },
@@ -12,20 +12,15 @@ const pages = [
 
 function Header() {
   const { pathname } = useLocation();
-  const navigate = useNavigate();
+
   const pageTitle = pages.find((page) => page.path === pathname)?.title ?? "Page not found";
 
   return (
     <header className="flex items-center justify-between bg-blue-500 p-4 text-white">
       <h1 className="text-2xl">{pageTitle}</h1>
 
-      <nav className="flex gap-4">
-        <button onClick={() => navigate(-1)} className="hover:underline font-bold">
-          Back
-        </button>
-        <button onClick={() => navigate(1)} className="hover:underline  font-bold">
-          Forward
-        </button>
+      <nav className="flex gap-4  max-md:items-start max-md:gap-1.5">
+        
 
         {pages
           .filter(
