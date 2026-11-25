@@ -29,6 +29,9 @@ function HomePage() {
             <Link to="/hook">
               <HomeCard title="Custom Hooks" description="Custom hooks are reusable functions that let you share stateful logic between React components. They can use built-in hooks like `useState` and `useEffect`, and their names conventionally start with `use`." />
             </Link>
+            <Link to="/memo">
+              <HomeCard title="Memoization" description="In React, `useMemo` is a Hook that caches the result of a calculation between renders. React reuses that value while its dependencies stay the same, and recalculates it when one changes. This can help avoid repeating expensive work, but for simple calculations the extra memoization usually isn’t needed. memoize values and prevent unnecessary re-renders." />
+            </Link>
           </div>
         </section>
       </PageLayout>

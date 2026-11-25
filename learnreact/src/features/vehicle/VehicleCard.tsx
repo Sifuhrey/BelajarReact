@@ -1,7 +1,8 @@
-import { useState } from "react";
+import {  useState } from "react";
 import { Link } from "react-router-dom";
 import { getWikiUrl } from "./getWikiUrl";
 import type { Vehicle } from "./Vehicle";
+
 
 type VehicleCardProps = {
   item: Vehicle;

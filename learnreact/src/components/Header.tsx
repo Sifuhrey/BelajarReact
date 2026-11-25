@@ -20,6 +20,8 @@ function Header() {
     pageTitle = "Form Page";
   } else if (pathname === "/hook") {
     pageTitle = "Hook Page";
+  } else if (pathname === "/memo") {
+    pageTitle = "Memo Page";
   }
 
   return (
@@ -64,6 +66,12 @@ function Header() {
             Hook
           </Link>
         )}
+        {pathname !== "/memo" && pathname !== "/" && (
+          <Link to="/memo" aria-label="Memo" aria-required="true" className="hover:underline">
+            Memo
+          </Link>
+        )}
+
       </nav>
     </header>
   );
