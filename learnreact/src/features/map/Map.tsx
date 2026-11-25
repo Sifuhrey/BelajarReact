@@ -33,7 +33,7 @@ function Map({ location }: { location: Location }) {
     const position: [number, number] = [location.lat, location.lon];
     return (
         <MapContainer
-            center={position} zoom={13} className="h-screen w-full">
+            center={position} zoom={13} className="h-[80vh] md:h-screen w-[80vw] md:w-full rounded-lg shadow-lg">
             <MapUpdater lat={location.lat} lon={location.lon} />
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
