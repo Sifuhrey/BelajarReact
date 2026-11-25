@@ -25,9 +25,7 @@ function HookPage() {
         onError={(error, info) => {
           console.error("ErrorBoundary caught an error", error, info);
         }}
-        onReset={() => {
-          // Reset any state that may have caused the error
-        }}>
+        >
         <SearchBox onLocationSelect={setLocation} />
         <Map location={location} />
       </ErrorBoundary>
