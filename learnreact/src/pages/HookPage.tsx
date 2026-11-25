@@ -2,6 +2,8 @@ import { useState } from "react";
 import PageLayout from "../components/PageLayout";
 import Map, { type Location } from "../features/map/Map";
 import SearchBox from "../features/map/SearchBox";
+import { ErrorBoundary,getErrorMessage } from "react-error-boundary";
+
 
 function HookPage() {
   const [location, setLocation] = useState<Location>({
@@ -12,8 +14,24 @@ function HookPage() {
 
   return (
     <PageLayout>
+      <ErrorBoundary
+        fallbackRender={({ error, resetErrorBoundary }) => (
+          <div role="alert">
+            <p>Something went wrong:</p>
+            <pre>{getErrorMessage(error)}</pre>
+            <button onClick={resetErrorBoundary}>Try again</button>
+          </div>
+        )}
+        onError={(error, info) => {
+          console.error("ErrorBoundary caught an error", error, info);
+        }}
+        onReset={() => {
+          // Reset any state that may have caused the error
+        }}>
         <SearchBox onLocationSelect={setLocation} />
         <Map location={location} />
+      </ErrorBoundary>
+        
     </PageLayout>
   )
 }
