@@ -1,28 +1,19 @@
-import { Link, useLocation } from "react-router-dom";
-import { useNavigate } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
+const pages = [
+  { path: "/", title: "Home Page", label: "Home" },
+  { path: "/state", title: "State Page", label: "State" },
+  { path: "/about", title: "About Page", label: "About", showOnHome: true },
+  { path: "/props", title: "Props Page", label: "Props" },
+  { path: "/form", title: "Form Page", label: "Form" },
+  { path: "/hook", title: "Hook Page", label: "Hook" },
+  { path: "/memo", title: "Memo Page", label: "Memo" },
+];
 
 function Header() {
   const { pathname } = useLocation();
-
-  let pageTitle = "Page not found";
   const navigate = useNavigate();
-
-  if (pathname === "/") {
-    pageTitle = "Home Page";
-  } else if (pathname === "/state") {
-    pageTitle = "State Page";
-  } else if (pathname === "/about") {
-    pageTitle = "About Page";
-  } else if (pathname === "/props") {
-    pageTitle = "Props Page";
-  } else if (pathname === "/form") {
-    pageTitle = "Form Page";
-  } else if (pathname === "/hook") {
-    pageTitle = "Hook Page";
-  } else if (pathname === "/memo") {
-    pageTitle = "Memo Page";
-  }
+  const pageTitle = pages.find((page) => page.path === pathname)?.title ?? "Page not found";
 
   return (
     <header className="flex items-center justify-between bg-blue-500 p-4 text-white">
@@ -32,46 +23,20 @@ function Header() {
         <button onClick={() => navigate(-1)} className="hover:underline font-bold">
           Back
         </button>
-        <button onClick={() => navigate(1)} className="hover:underline font-bold">
+        <button onClick={() => navigate(1)} className="hover:underline  font-bold">
           Forward
         </button>
 
-        {pathname !== "/" && (
-          <Link to="/" aria-label="Home" aria-required="true" className="hover:underline">
-            Home
-          </Link>
-        )}
-        {pathname !== "/state" && pathname !== "/" && (
-          <Link to="/state" aria-label="State" aria-required="true" className="hover:underline">
-            State
-          </Link>
-        )}
-        {pathname !== "/about" && (
-          <Link to="/about" aria-label="About" aria-required="true" className="hover:underline">
-            About
-          </Link>
-        )}
-        {pathname !== "/props" && pathname !== "/" && (
-          <Link to="/props" aria-label="Props" aria-required="true" className="hover:underline">
-            Props
-          </Link>
-        )}
-        {pathname !== "/form" && pathname !== "/" && (
-          <Link to="/form" aria-label="Form" aria-required="true" className="hover:underline">
-            Form
-          </Link>
-        )}
-        {pathname !== "/hook" && pathname !== "/" && (
-          <Link to="/hook" aria-label="Hook" aria-required="true" className="hover:underline">
-            Hook
-          </Link>
-        )}
-        {pathname !== "/memo" && pathname !== "/" && (
-          <Link to="/memo" aria-label="Memo" aria-required="true" className="hover:underline">
-            Memo
-          </Link>
-        )}
-
+        {pages
+          .filter(
+            (page) =>
+              page.path !== pathname && (pathname !== "/" || page.showOnHome),
+          )
+          .map((page) => (
+            <Link key={page.path} to={page.path} aria-label={page.label} className="hover:underline max-md:text-sm">
+              {page.label}
+            </Link>
+          ))}
       </nav>
     </header>
   );
