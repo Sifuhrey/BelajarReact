@@ -8,6 +8,7 @@ const pages = [
   { path: "/form", title: "Form Page", label: "Form" },
   { path: "/hook", title: "Hook Page", label: "Hook" },
   { path: "/memo", title: "Memo Page", label: "Memo" },
+  { path: "/context", title: "Context Page", label: "Context" },
 ];
 
 function Header() {

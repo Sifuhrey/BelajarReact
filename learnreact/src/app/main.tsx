@@ -10,6 +10,7 @@ const PropsPage = lazy(() => import("../pages/PropsPage"));
 const FormPage = lazy(() => import("../pages/FormPage"));
 const HookPage = lazy(() => import("../pages/HookPage"));
 const MemoPage = lazy(() => import("../pages/MemoPage"));
+const ContextPage = lazy(() => import("../pages/ContextPage"));
 createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
     <Suspense fallback=
@@ -31,6 +32,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/form" element={<FormPage />} />
         <Route path="/hook" element={<HookPage />} />
         <Route path="/memo" element={<MemoPage />} />
+        <Route path="/context" element={<ContextPage />} />
       </Routes>
     </Suspense>
   </BrowserRouter>,
