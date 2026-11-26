@@ -7,6 +7,8 @@ type MapStore = {
     results: SearchResult[];
     setLocation: (location: Location) => void;
     setResults: (results: SearchResult[]) => void;
+    query: string;
+    setQuery: (query: string) => void;
 };
 
 export const useMapStore = create<MapStore>((set) => ({
@@ -18,4 +20,6 @@ export const useMapStore = create<MapStore>((set) => ({
     results: [],
     setLocation: (location) => set({ location }),
     setResults: (results) => set({ results }),
+    query: "",
+    setQuery: (query) => set({ query }),
 }));

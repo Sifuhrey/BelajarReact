@@ -28,7 +28,9 @@ function Header() {
     <header className="flex items-center justify-between bg-blue-500 p-4 gap-2 text-white">
       <h1 className=" text-lg md:text-2xl">{pageTitle}</h1>
       {pathname === "/hook" && (
-        <SearchForm loading={loading} onSearch={handleSearch} />
+        <div className="max-lg:hidden">
+          <SearchForm loading={loading} onSearch={handleSearch} />
+        </div>
       )}
       <nav className="flex gap-4  max-md:items-start max-md:gap-1.5">
         
@@ -39,7 +41,7 @@ function Header() {
               page.path !== pathname && (pathname !== "/" || page.showOnHome),
           )
           .map((page) => (
-            <Link key={page.path} to={page.path} aria-label={page.label} className="hover:underline max-lg:hidden">
+            <Link key={page.path} to={page.path} aria-label={page.label} className="hover:underline ">
               {page.label}
             </Link>
           ))}

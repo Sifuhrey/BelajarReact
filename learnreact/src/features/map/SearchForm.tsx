@@ -1,5 +1,6 @@
 // SearchForm.tsx
-import { useState, type FormEvent } from 'react';
+import { type FormEvent } from 'react';
+import { useMapStore } from './mapStore';
 
 type SearchFormProps = {
     loading: boolean;
@@ -7,7 +8,8 @@ type SearchFormProps = {
 };
 
 function SearchForm({ loading, onSearch }: SearchFormProps) {
-    const [query, setQuery] = useState('');
+    const query = useMapStore((state) => state.query);
+    const setQuery = useMapStore((state) => state.setQuery);
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -20,7 +22,9 @@ function SearchForm({ loading, onSearch }: SearchFormProps) {
             <input
                 id="location-search"
                 value={query}
-                onChange={(event) => setQuery(event.target.value)}
+                onChange={(event) => {
+                    setQuery(event.target.value);
+                }}
                 placeholder="Search location"
                 className="rounded border bg-white text-black max-md:text-sm p-1 md:p-2"
             />
