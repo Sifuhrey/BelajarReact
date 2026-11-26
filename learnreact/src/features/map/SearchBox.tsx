@@ -41,7 +41,8 @@ function SearchBox({ onLocationSelect }: SearchBoxProps) {
 
     return (
         <div className= "flex flex-col items-center gap-4 p-2 ">
-            <form onSubmit={handleSearch} className="flex gap-2">
+            <form onSubmit={handleSearch} className="flex items-center gap-2">
+                <p>Search Location:</p>
                 <input
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
