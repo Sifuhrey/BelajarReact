@@ -54,7 +54,7 @@ function SearchBox({ onLocationSelect }: SearchBoxProps) {
             </form>
             <div className="flex flex-col gap-2 w-full text-sm rounded ">
                 {results.map((result) => (
-                    <div key={result.place_id} onClick={() => selectLocation(result)} className="cursor-pointer hover:bg-blue-300 p-1 md:p-2 bg-blue-400 rounded">
+                    <div key={result.place_id} onClick={() => selectLocation(result)} className="cursor-pointer hover:bg-blue-500 p-1 md:p-2 bg-blue-400 rounded">
                         {result.display_name}
                     </div>
                 ))}
