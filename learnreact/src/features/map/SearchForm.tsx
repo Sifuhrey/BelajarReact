@@ -1,6 +1,6 @@
 // SearchForm.tsx
 import { type FormEvent } from 'react';
-import { useMapStore } from './mapStore';
+import { useQueryStore } from './queryStore';
 
 type SearchFormProps = {
     loading: boolean;
@@ -8,8 +8,8 @@ type SearchFormProps = {
 };
 
 function SearchForm({ loading, onSearch }: SearchFormProps) {
-    const query = useMapStore((state) => state.query);
-    const setQuery = useMapStore((state) => state.setQuery);
+    const query = useQueryStore((state) => state.query);
+    const setQuery = useQueryStore((state) => state.setQuery);
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
