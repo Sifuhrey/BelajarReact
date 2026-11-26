@@ -1,5 +1,8 @@
+// SearchBox.tsx
 import { useState } from 'react';
 import useGeocoding from './useGeocoding';
+import SearchForm from './SearchForm';
+import SearchResults, { type SearchResult } from './SearchResult';
 
 type Location = {
     lat: number;
@@ -7,31 +10,19 @@ type Location = {
     name: string;
 };
 
-type SearchResult = {
-    place_id: number;
-    lat: string;
-    lon: string;
-    display_name: string;
-};
-
 type SearchBoxProps = {
     onLocationSelect: (location: Location) => void;
 };
 
 function SearchBox({ onLocationSelect }: SearchBoxProps) {
-    const [query, setQuery] = useState('');
     const [results, setResults] = useState<SearchResult[]>([]);
     const { searchAddress, loading } = useGeocoding();
 
-    const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        if (!query.trim()) return;
-
-        const data = await searchAddress(query);
-        setResults(data);
+    const handleSearch = async (query: string) => {
+        setResults(await searchAddress(query));
     };
 
-    const selectLocation = (result: SearchResult) => {
+    const handleSelect = (result: SearchResult) => {
         onLocationSelect({
             lat: parseFloat(result.lat),
             lon: parseFloat(result.lon),
@@ -40,26 +31,9 @@ function SearchBox({ onLocationSelect }: SearchBoxProps) {
     };
 
     return (
-        <div className= "flex flex-col items-center gap-4 p-2 ">
-            <form onSubmit={handleSearch} className="flex items-center gap-2">
-                <p>Search Location:</p>
-                <input
-                    value={query}
-                    onChange={(e) => setQuery(e.target.value)}
-                    placeholder="Search location"
-                    className="border p-2 rounded bg-white"
-                />
-                <button type="submit" className="bg-gray-300 border-black p-2 rounded">
-                    {loading ? 'Searching...' : 'Search'}
-                </button>
-            </form>
-            <div className="flex flex-col gap-2 w-full text-sm rounded ">
-                {results.map((result) => (
-                    <div key={result.place_id} onClick={() => selectLocation(result)} className="cursor-pointer hover:bg-blue-500 p-1 md:p-2 bg-blue-400 rounded">
-                        {result.display_name}
-                    </div>
-                ))}
-            </div>
+        <div className="flex flex-col items-center gap-4 p-2">
+            <SearchForm loading={loading} onSearch={handleSearch} />
+            <SearchResults results={results} onSelect={handleSelect} />
         </div>
     );
 }
