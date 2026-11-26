@@ -1,3 +1,4 @@
+import { useMapStore } from "./mapStore";
 
 export type SearchResult = {
     place_id: number;
@@ -6,20 +7,26 @@ export type SearchResult = {
     display_name: string;
 };
 
-type SearchResultsProps = {
-    results: SearchResult[];
-    onSelect: (result: SearchResult) => void;
-};
+function SearchResult() {
+    const results = useMapStore((state) => state.results);
+    const setLocation = useMapStore((state) => state.setLocation);
 
-function SearchResults({ results, onSelect }: SearchResultsProps) {
+    const handleSelect = (result: SearchResult) => {
+        setLocation({
+            lat: parseFloat(result.lat),
+            lon: parseFloat(result.lon),
+            name: result.display_name,
+        });
+    };
+
     return (
-        <div className="flex w-full flex-col gap-2 rounded text-sm">
+        <div className="flex w-full flex-col gap-2 m-2 rounded text-sm">
             {results.map((result) => (
                 <button
                     key={result.place_id}
                     type="button"
-                    onClick={() => onSelect(result)}
-                    className="cursor-pointer rounded bg-blue-400 p-1 text-left hover:bg-blue-500 md:p-2"
+                    onClick={() => handleSelect(result)}
+                    className="cursor-pointer rounded bg-blue-400 p-1 mx-10 text-left hover:bg-blue-500 md:p-2"
                 >
                     {result.display_name}
                 </button>
@@ -28,4 +35,4 @@ function SearchResults({ results, onSelect }: SearchResultsProps) {
     );
 }
 
-export default SearchResults;
+export default SearchResult;

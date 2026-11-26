@@ -1,16 +1,15 @@
-import { useState } from "react";
+
 import PageLayout from "../components/PageLayout";
-import Map, { type Location } from "../features/map/Map";
-import SearchBox from "../features/map/SearchBox";
+import Map from "../features/map/Map";
+
 import { ErrorBoundary,getErrorMessage } from "react-error-boundary";
+import SearchResult from "../features/map/SearchResult";
+import { useMapStore } from "../features/map/mapStore";
+
 
 
 function HookPage() {
-  const [location, setLocation] = useState<Location>({
-    lat: -6.9214015,
-    lon: 107.6111087,
-    name: "Bandung",
-  });
+  const location = useMapStore((state) => state.location);
 
   return (
     <PageLayout>
@@ -26,7 +25,7 @@ function HookPage() {
           console.error("ErrorBoundary caught an error", error, info);
         }}
         >
-        <SearchBox onLocationSelect={setLocation} />
+        <SearchResult />
         <Map location={location} />
       </ErrorBoundary>
         

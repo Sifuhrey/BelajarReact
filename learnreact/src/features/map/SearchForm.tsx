@@ -15,14 +15,14 @@ function SearchForm({ loading, onSearch }: SearchFormProps) {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="flex items-center gap-2">
-            <label htmlFor="location-search">Search Location:</label>
+        <form onSubmit={handleSubmit} className="flex items-center justify-start gap-2">
+            <label  htmlFor="location-search">Search Location:</label>
             <input
                 id="location-search"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder="Search location"
-                className="rounded border bg-white p-2"
+                className="rounded border bg-white text-black max-md:text-sm p-1 md:p-2"
             />
             <button type="submit" className="rounded border border-black bg-gray-300 p-2">
                 {loading ? 'Searching...' : 'Search'}

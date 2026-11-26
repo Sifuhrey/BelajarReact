@@ -1,4 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
+import SearchForm from "../features/map/SearchForm";
+import useGeocoding from "../features/map/useGeocoding";
+import { useMapStore } from "../features/map/mapStore";
+
 
 const pages = [
   { path: "/", title: "Home Page", label: "Home" },
@@ -13,13 +17,19 @@ const pages = [
 
 function Header() {
   const { pathname } = useLocation();
+  const { searchAddress, loading } = useGeocoding();
+  const setResults = useMapStore((state) => state.setResults);
 
   const pageTitle = pages.find((page) => page.path === pathname)?.title ?? "Page not found";
-
+  const handleSearch = async (query: string) => {
+    setResults(await searchAddress(query));
+  };
   return (
-    <header className="flex items-center justify-between bg-blue-500 p-4 text-white">
-      <h1 className="text-2xl">{pageTitle}</h1>
-
+    <header className="flex items-center justify-between bg-blue-500 p-4 gap-2 text-white">
+      <h1 className=" text-lg md:text-2xl">{pageTitle}</h1>
+      {pathname === "/hook" && (
+        <SearchForm loading={loading} onSearch={handleSearch} />
+      )}
       <nav className="flex gap-4  max-md:items-start max-md:gap-1.5">
         
 
@@ -29,7 +39,7 @@ function Header() {
               page.path !== pathname && (pathname !== "/" || page.showOnHome),
           )
           .map((page) => (
-            <Link key={page.path} to={page.path} aria-label={page.label} className="hover:underline max-md:text-sm">
+            <Link key={page.path} to={page.path} aria-label={page.label} className="hover:underline max-lg:hidden">
               {page.label}
             </Link>
           ))}

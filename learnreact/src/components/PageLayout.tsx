@@ -9,7 +9,7 @@ function PageLayout({ children }: PageLayoutProps) {
     return (
         <>
             <Header />
-            <main className="bg-blue-300 min-h-lvh flex flex-col items-center justify-center gap-4">
+            <main className="bg-blue-300 min-h-lvh flex flex-col items-center justify-center ">
                 {children}
             </main>
         </>

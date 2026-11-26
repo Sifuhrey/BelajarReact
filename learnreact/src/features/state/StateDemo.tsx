@@ -22,7 +22,7 @@ function StateComponent() {
   }
 
   return (
-    <>
+    <div className="flex flex-col gap-4 items-center justify-center">
       <div
         className="h-16 w-96 bg-red-500 hover:bg-green-500 text-amber-50 p-4 rounded border flex items-center justify-center"
         onMouseEnter={() => setIsHovered(true)}
@@ -64,7 +64,7 @@ function StateComponent() {
           </p>
         </>
       )}
-    </>
+    </div>
   );
 }
 export default StateComponent;

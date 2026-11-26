@@ -11,6 +11,7 @@ const FormPage = lazy(() => import("../pages/FormPage"));
 const HookPage = lazy(() => import("../pages/HookPage"));
 const MemoPage = lazy(() => import("../pages/MemoPage"));
 const ContextPage = lazy(() => import("../pages/ContextPage"));
+
 createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
     <Suspense fallback=
