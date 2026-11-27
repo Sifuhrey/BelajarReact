@@ -16,6 +16,7 @@ function VehicleList({ country, type }: PropsCardProps) {
   } = useQuery({
     queryKey: ["vehicles", country, type],
     queryFn: () => fetchVehicles(country, type),
+    retryDelay: 2000,
   })
   if (isPending) {
     return <div className="flex items-center justify-center h-screen gap-4 bg-blue-300">
