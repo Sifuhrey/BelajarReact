@@ -2,8 +2,10 @@
 import PageLayout from "../components/PageLayout";
 import VehicleList from "../features/vehicle/VehicleList";
 import { useState } from "react";
+import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 
 function PropsPage() {
+  const queryClient = new QueryClient();
   const [country, setCountry] = useState("usa");
   const [type, setType] = useState("light_tank");
   return (
@@ -57,7 +59,9 @@ function PropsPage() {
             </select>
           </label>
         </div>
-        <VehicleList country={country} type={type} />
+        <QueryClientProvider client={queryClient}>
+          <VehicleList country={country} type={type} />
+        </QueryClientProvider>
       </PageLayout>
     </>
   );
