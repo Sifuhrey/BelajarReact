@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.5",
+    "@tanstack/react-query": "^5.108.4",
     "formik": "^2.4.9",
     "leaflet": "^1.9.4",
     "react": "^19.3.1",
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",
+    "@tanstack/eslint-plugin-query": "^5.108.4",
     "@testing-library/react": "^16.3.3",
     "@testing-library/user-event": "^14.6.13",
     "@types/leaflet": "^1.9.22",
