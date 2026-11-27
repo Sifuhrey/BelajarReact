@@ -1,13 +1,13 @@
 
 import PageLayout from "../components/PageLayout";
 import VehicleList from "../features/vehicle/VehicleList";
-import { useState } from "react";
-import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { useSessionStorageState } from "../features/hook/useSessionStorageState";
 
 function PropsPage() {
   const queryClient = new QueryClient();
-  const [country, setCountry] = useState("usa");
-  const [type, setType] = useState("light_tank");
+  const [country, setCountry] = useSessionStorageState("vehicle-country", "usa");
+  const [type, setType] = useSessionStorageState("vehicle-type", "light_tank");
   return (
     <>
       <PageLayout>
