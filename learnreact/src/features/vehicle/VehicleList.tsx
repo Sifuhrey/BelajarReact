@@ -1,7 +1,7 @@
 import VehicleCard from "./VehicleCard";
-import { useQuery, keepPreviousData } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 import fetchVehicles from "./fetchVehicle";
-import {  useState } from "react";
+// import { Fragment } from "react";
 
 type PropsCardProps = {
   country: string;
@@ -9,20 +9,25 @@ type PropsCardProps = {
 };
 
 function VehicleList({ country, type }: PropsCardProps) {
-  const [page, setPage] = useState(0);
- 
   const {
     data,
     isPending,
     isError,
     error,
-    isFetching,
-    isPlaceholderData,
-  } = useQuery({
-    queryKey: ["vehicles", country, type, page],
-    queryFn: () => fetchVehicles(country, type, page),
-    placeholderData: keepPreviousData,
-  })
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+  } = useInfiniteQuery({
+    queryKey: ["vehicles", country, type],
+    queryFn: ({ pageParam }) => fetchVehicles(country, type, pageParam),
+    initialPageParam: 0,
+    getNextPageParam: (lastPage, allPages) =>
+      lastPage.length > 0 ? allPages.length : undefined,
+  });
+  const vehicles = data?.pages
+    .flat()
+    .sort((a, b) => a.realistic_br - b.realistic_br) ?? [];
+
   return (
     <>{
       isPending ? (
@@ -35,46 +40,45 @@ function VehicleList({ country, type }: PropsCardProps) {
         </div>
       ) : isError ? (
         <div>Error: {error.message}</div>
-      ) : data.length === 0 ? (
-        <div className="flex items-center justify-center h-screen gap-4 bg-blue-300">
-          <p className=" text-3xl">No vehicles found for {country} - {type}</p>
-        </div>
       ) : (
-        <div className="flex w-full flex-col gap-4">
-          {data.map((item) => (
-            <VehicleCard
-              key={`${item.identifier}-${item.images.image}`}
-              item={item}
-            />
-          ))}
-        </div>
+        <>
+          <div className="flex w-full flex-col gap-4">
+            {vehicles.map((item) => (
+              <VehicleCard
+                key={`${item.identifier}-${item.images.image}`}
+                item={item}
+              />
+            ))}
+          </div>
+          {/* <div className="flex w-full flex-col gap-4">
+            {data.pages.map((group, i) => (
+              <Fragment key={i}>
+                {group.map((item) => (
+                  <VehicleCard
+                    key={`${item.identifier}-${item.images.image}`}
+                    item={item}
+                  />
+                ))}
+              </Fragment>
+            ))}
+          </div> */}
+          <div>
+            <button
+              onClick={() => fetchNextPage()}
+              disabled={!hasNextPage || isFetchingNextPage}
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded  disabled:cursor-not-allowed mb-2"
+            >
+              {isFetchingNextPage
+                ? "Loading more..."
+                : hasNextPage
+                  ? "Load More"
+                  : "Nothing more to load"}
+            </button>
+          </div>
+        </>
       )
     }
-      <div className="flex items-center justify-center gap-4 p-4">
-      <button
-        onClick={() => setPage((old) => Math.max(old - 1, 0))}
-        disabled={page === 0}
-        className="bg-gray-300 hover:bg-gray-400 disabled:opacity-50 p-1 rounded-lg border"
-        >
-        Previous Page
-      </button>
-        {isFetching ? <span> Loading...</span> : <span>Current Page: {page + 1}</span>}
-      <button
-        onClick={() => {
-          if (!isPlaceholderData  ) {
-            setPage((old) => old + 1);
-          }
-        }}
-        disabled={isPlaceholderData }
-        className="bg-gray-300 hover:bg-gray-400 disabled:opacity-50 p-1 rounded-lg border"
-      >
-        Next Page
-      </button>
-        
-      </div>
-
     </>
   )
-
 }
 export default VehicleList;
