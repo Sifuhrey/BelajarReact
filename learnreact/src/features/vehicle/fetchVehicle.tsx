@@ -1,11 +1,11 @@
 import type { Vehicle } from "./Vehicle";
 
-export default async function fetchVehicles(country: string, type: string): Promise<Vehicle[]> {
+export default async function fetchVehicles(country: string, type: string, page: number): Promise<Vehicle[]> {
     const urls = [
-        `https://wtvehiclesapi.duckdns.org/api/vehicles?limit=200&page=0&country=${country}&type=${type}&isPremium=false&isPack=false&isSquadronVehicle=false&isOnMarketplace=false&excludeKillstreak=true&excludeEventVehicles=true`,
-        `https://wtvehiclesapi.duckdns.org/api/vehicles?limit=200&page=0&country=${country}&type=${type}&isPremium=true&isPack=false&isSquadronVehicle=false&isOnMarketplace=false&excludeKillstreak=true&excludeEventVehicles=true`,
-        `https://wtvehiclesapi.duckdns.org/api/vehicles?limit=200&page=0&country=${country}&type=${type}&isPremium=false&isPack=false&isSquadronVehicle=false&isOnMarketplace=true&excludeKillstreak=true&excludeEventVehicles=true`,
-        `https://wtvehiclesapi.duckdns.org/api/vehicles?limit=200&page=0&country=${country}&type=${type}&isPremium=true&isPack=true&isSquadronVehicle=false&isOnMarketplace=false&excludeKillstreak=true&excludeEventVehicles=true`,
+        `https://wtvehiclesapi.duckdns.org/api/vehicles?limit=4&page=${page}&country=${country}&type=${type}&isPremium=false&isPack=false&isSquadronVehicle=false&isOnMarketplace=false&excludeKillstreak=true&excludeEventVehicles=true`,
+        `https://wtvehiclesapi.duckdns.org/api/vehicles?limit=2&page=${page}&country=${country}&type=${type}&isPremium=true&isPack=false&isSquadronVehicle=false&isOnMarketplace=false&excludeKillstreak=true&excludeEventVehicles=true`,
+        `https://wtvehiclesapi.duckdns.org/api/vehicles?limit=2&page=${page}&country=${country}&type=${type}&isPremium=false&isPack=false&isSquadronVehicle=false&isOnMarketplace=true&excludeKillstreak=true&excludeEventVehicles=true`,
+        `https://wtvehiclesapi.duckdns.org/api/vehicles?limit=2&page=${page}&country=${country}&type=${type}&isPremium=true&isPack=true&isSquadronVehicle=false&isOnMarketplace=false&excludeKillstreak=true&excludeEventVehicles=true`,
     ];
 
     const results = await Promise.all(
